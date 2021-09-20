@@ -1,6 +1,8 @@
 # cipher-parse
 use sslyze against a list of hosts found on crt.sh
 
+python -m pip install -r requirements.txt
+
 usage: cipher-parse.py [-h] -d DOMAIN
 
 OPTIONS:
