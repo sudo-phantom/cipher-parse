@@ -11,13 +11,13 @@ BASE_URL = "https://crt.sh/?q={}&output=json"
    
 parser = argparse.ArgumentParser(epilog='\tExample: \r\npython3 ' + sys.argv[0] + " -d google.com")
 parser._optionals.title = "OPTIONS"
-parser.add_argument('-d', '--domain', help='Specify Target Domain to get subdomains from crt.sh', required=True)
+parser.add_argument('-d', '--domain', type=str, help='Specify Target Domain to get subdomains from crt.sh', required=True)
 query =  parser.parse_args()
 foo = query.domain
 bar = 'common_name'
 
 # get json output from crt.sh and output to file named output.json
-r = requests.get(BASE_URL.format(foo), timeout=25)
+r = requests.get(BASE_URL.format(str(foo)), timeout=25)
 snap = r.json()
 most = json.dumps(snap)
 with open('output.json', 'w') as file:
