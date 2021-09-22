@@ -6,7 +6,7 @@ import json
 import subprocess
 
 
-BASE_URL = "https://crt.sh/?q={}&output=json"
+BASE_URL = "https://crt.sh/?q={}&output=json&exclude=expired"
   
 parser = argparse.ArgumentParser(epilog='\tExample: \r\npython3 ' + sys.argv[0] + " -d google.com")
 parser._optionals.title = "OPTIONS"
