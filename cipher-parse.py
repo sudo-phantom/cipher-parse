@@ -66,11 +66,11 @@ def scan_results():
     tls12 = json.dumps(data['server_scan_results'][0]['scan_commands_results']['tls_1_2_cipher_suites']['accepted_cipher_suites'])
     tls13 = json.dumps(data['server_scan_results'][0]['scan_commands_results']['tls_1_2_cipher_suites']['accepted_cipher_suites'])
     if ssl2 != '[]':
-        print('Illegal usage of SSLv2')
+        print('Illegal usage of SSLv2 : ' + str(sname['hostname'] + ' : ' + str(sname['ip_address'])))
     if ssl3 != '[]':
-        print('Illegal usage of SSLv3')
+        print('Illegal usage of SSLv3 : ' + str(sname['hostname'] + ' : ' + str(sname['ip_address'])))
     if tls10 != '[]':
-        print('Illegal usage of TLSv1.0')
+        print('Illegal usage of TLSv1.0 : ' + str(sname['hostname'] + ' : ' + str(sname['ip_address'])))
     with open('./out/tls1-1.json', 'w') as file:
         file.write(tls11)
     with open('./out/tls1-2.json', 'w') as file:
