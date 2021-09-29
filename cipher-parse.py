@@ -88,6 +88,7 @@ def scan_results():
             print(item + ' Found in TLSv1.3 : ' + str(sname['hostname'] + ' : ' + str(sname['ip_address'])))
 
 if __name__ == "__main__":
+    get_data()
     get_out()
     run_scan()
     scan_results()
