@@ -55,9 +55,10 @@ def scan_results():
     except OSError as e:
         if e.errno != errno.EEXIST: # directory already exists
             raise
-
+    
     with open('scan-results.json', 'r') as r:
         data = json.load(r)
+    sname =  data['server_scan_results'][0]['server_info']['server_location']
     ssl2 = json.dumps(data['server_scan_results'][0]['scan_commands_results']['ssl_2_0_cipher_suites']['accepted_cipher_suites'])
     ssl3 = json.dumps(data['server_scan_results'][0]['scan_commands_results']['ssl_3_0_cipher_suites']['accepted_cipher_suites'])
     tls10 = json.dumps(data['server_scan_results'][0]['scan_commands_results']['tls_1_0_cipher_suites']['accepted_cipher_suites'])
@@ -78,13 +79,13 @@ def scan_results():
         file.write(tls13)
     for item in BAD_CIPHERS:
         if item in tls11:
-            print(item + ' Found in TLSv1.1')
+            print(item + ' Found in TLSv1.1 : ' + str(sname['hostname'] + ' : ' + str(sname['ip_address'])))
     for item in BAD_CIPHERS:
         if item in tls12:
-            print(item + ' Found in TLSv1.2')
+            print(item + ' Found in TLSv1.2 : ' + str(sname['hostname'] + ' : ' + str(sname['ip_address'])))
     for item in BAD_CIPHERS:
         if item in tls13:
-            print(item + ' Found in TLSv1.3')
+            print(item + ' Found in TLSv1.3 : ' + str(sname['hostname'] + ' : ' + str(sname['ip_address'])))
 
 if __name__ == "__main__":
     get_out()
