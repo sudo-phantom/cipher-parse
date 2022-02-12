@@ -1,4 +1,5 @@
 # cipher-parse
+```
 use sslyze against a list of hosts found on crt.sh
 
 python -m pip install -r requirements.txt
@@ -11,3 +12,4 @@ OPTIONS:
                         Specify Target Domain to get subdomains from crt.sh
 
 Example: python3 .\cipher-parse.py -d google.com
+```
